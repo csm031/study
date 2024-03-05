@@ -1,0 +1,54 @@
+table, td {
+    border: 1px solid black;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+td {
+    height: 15rem;
+}
+
+#purchaseList {
+    width: 5rem;
+}
+
+.fontRed {
+    color: red;
+}
+
+.fontYellow {
+    color: lightyellow;
+}
+
+.fontGreen {
+    color: green;
+}
+
+.tableHeader {
+    background: lightgrey;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1rem;
+    height: 6rem;
+}
+
+.productButton {
+    width: 4rem;
+    height: 1.5rem;
+}
+
+.input {
+    width: 5rem;
+    height: 1.5rem;
+}
+
+.returnButton {
+    width: 5rem;
+    height: 2rem;
+}
+
+.returnMoney {
+    width: 1rem;
+    height: 1.5rem;
+}
