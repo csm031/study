@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PC방 시간당 요금</title>
+</head>
+<body>
+시간당 요금을 입력해주세요: <input type="text" id="inputTimeMoney">
+<button onclick="input()" style="width: 5rem; height: 3rem">입력</button>
+<p>시작 시간<input type="datetime-local" id="startTime"></p>
+<p>종료 시간<input type="datetime-local" id="endTime"></p>
+<div id = resultArea></div>
+<script>
+
+    let input = () => {
+        let startTime = new Date(document.getElementById('startTime').value);
+        let endTime = new Date(document.getElementById('endTime').value);
+        let timeMoney = document.getElementById('inputTimeMoney').value;
+        let result = endTime.getTime()-startTime.getTime();
+        result = Math.abs(endTime - startTime) / (1000 * 60 * 60);
+        console.log(result);
+        document.getElementById('resultArea').innerHTML = `금액은 : ${result*timeMoney}원 입니다.`;
+    }
+</script>
+</body>
+</html>

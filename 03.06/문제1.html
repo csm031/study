@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문제1</title>
+</head>
+<body>
+<!--1. 사용자에게 구매 시간을 입력받아서 반품가능한지 출력해보자.
+ 1달이내에 구매해야 반품이 가능하다.-->
+<h3>구매 시간을 입력해주세요.</h3><input type="date" id="purchaseTime">
+<button id="summitButton" onclick="dateComparison()">입력</button>
+<div id="result"></div>
+<script>
+    let inputDate = document.getElementById('purchaseTime');
+    let sysDate = new Date();
+    let result = document.getElementById('result')
+
+
+    let dateComparison = () => {
+        let date = new Date(inputDate.value);
+        let diffTime = Math.abs(sysDate.getTime() - date.getTime());
+        let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays <= 30) {
+            result.innerHTML = `반품 가능`
+        } else {
+            result.innerHTML = `반품 불가능`
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>속성변경 및 페이지 이동</title>
+</head>
+<body>
+<a id="myElement" href="https://naver.com">속성 변경 및 추가</a><br>
+<button id="change">속성 변경</button><br>
+<button id="remove">속성 제거</button>
+<script>
+    const element = document.getElementById('myElement');
+    const change = document.getElementById('change');
+    const remove = document.getElementById('remove');
+    // 속성 읽어오기
+    console.log(element);
+    console.log(`href : ${element.getAttribute('href')}`);
+    // 속성 추가
+    const setClassChange = () => element.setAttribute('class','changeClass');
+    change.addEventListener("click", setClassChange);
+    //속성 제거
+    const removeClass = () => element.removeAttribute('class');
+    remove.addEventListener("click", removeClass);
+
+</script>
+</body>
+</html>
