@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM을 이용한 css 변경</title>
+    <style>
+        #box{
+            width: 30rem;
+            height: 20rem;
+            border: 1px solid black;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div id="box"><span>Hello World</span></div>
+<button id="changeColor">색 넣기</button>
+<button id="changeHeight">높이 증가시키기</button>
+<button id="changeWidth">너비 증가시키기</button>
+<button id="changeFont">글씨 색 바꾸기</button>
+<button id="reset">초기화</button>
+<script>
+    const box = document.getElementById('box');
+    const changeColor = document.getElementById('changeColor');
+    const changeHeight = document.getElementById('changeHeight');
+    const changeWidth = document.getElementById('changeWidth');
+    const changeFont = document.getElementById('changeFont');
+    const reset = document.getElementById('reset');
+    let heightSize = 20;
+    let widthSize = 30;
+    // 스타일 조정
+    changeColor.addEventListener("click", () => box.style.backgroundColor=`yellow`);
+    changeHeight.addEventListener("click", () => {
+        heightSize +=2;
+        box.style.height=`${heightSize}rem`
+    });
+    changeWidth.addEventListener("click", () => {
+        widthSize +=2;
+        box.style.width=`${widthSize}rem`
+    });
+    // 속성 지우기 ( 초기화 )
+    changeFont.addEventListener("click", () => box.style.color=`red`);
+    reset.addEventListener("click", () => {
+        box.removeAttribute('style');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배열 예제1</title>
+</head>
+<body>
+<table border="1" width="300" height="100">
+    <tr>
+        <td id="x0" bgcolor="red"></td>
+        <td id="x1"
+            bgcolor="blue"></td>
+        <td bgcolor="green" id="x2"></td>
+    </tr>
+</table>
+<script>
+    function move() {
+        var temp = document.getElementById("x2").getAttribute("bgcolor");
+        console.log(temp);
+        for (var i = 2; i > 0; i--) {
+            document.getElementById("x" + i).setAttribute("bgcolor",
+                document.getElementById("x" + (i - 1)).getAttribute("bgcolor"));
+        }
+        document.getElementById("x0").setAttribute("bgcolor", temp);
+    }
+
+    window.onload = function () {
+        var intervalId = setInterval(move, 1000);
+    }
+</script>
+</body>
+</html>

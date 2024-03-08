@@ -1,0 +1,75 @@
+<!-- 조건
+HTML 구조:
+페이지에는 여러 개의 버튼이 있습니다. 몇몇 버튼은 초기 상태에서 "active" 클래스를
+가지고 있습니다.
+CSS 스타일:
+스타일 시트에서 버튼의 스타일을 정의합니다. 초기 상태에서 "active" 클래스를 가진
+버튼의 배경색은 검정색이고 텍스트 색상은 초록색입니다. 마우스를 버튼 위로 올리면
+버튼의 배경색이 검정색이 되고 텍스트 색상은 초록색이 됩니다.
+JavaScript:
+클릭 이벤트 리스너는 클릭된 버튼을 강조 표시하기 위해 "active" 클래스를 해당 버튼에
+추가하고, 모든 다른 버튼에서 "active" 클래스를 제거합니다.
+this.classList.add("active")는 현재 클릭된 버튼에 "active" 클래스를 추가하는
+부분입니다.
+buttons[j].classList.remove("active")는 모든 버튼에서 "active" 클래스를 제거하는
+부분입니다.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button을 사용한 active 표현하기</title>
+</head>
+<style>
+    .box{
+        display: flex;
+        width: 70%;
+        height: 5rem;
+        border: 1px solid black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    button{
+        width: 20%;
+        background: deepskyblue;
+        text-align: center;
+        line-height: 5rem;
+        font-weight: bold;
+        font-size: 20px;
+        border: 0;
+    }
+    button:hover{
+        background-color: black;
+        color: greenyellow;
+        cursor: pointer;
+    }
+    .active{
+        background-color: black;
+        color: greenyellow;
+    }
+</style>
+<body>
+<div class = 'box'>
+    <button>1</button>
+    <button>2</button>
+    <button class ='active'>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>7</button>
+</div>
+<script>
+    let buttonElements = document.getElementsByTagName("button");
+    // 클릭하면 모든 버튼의 active클래스를 일단 제거 후 클릭한 버튼에 active클래스를 추가함
+    for (let i = 0;i<buttonElements.length;i++){
+        buttonElements[i].addEventListener('click', function () {
+            for (let j = 0;j<buttonElements.length;j++){
+                buttonElements[j].classList.remove("active");
+            }
+            buttonElements[i].classList.add("active");
+        })
+    }
+
+</script>
+</body>
+</html>

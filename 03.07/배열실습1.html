@@ -1,0 +1,51 @@
+<!-- 버튼을 누르면 0.25초마다 상자의 색이 바뀐다.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배열실습1</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        button {
+            width: 200px;
+            height: 100px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div id="box1" style="background:red;"></div>
+<div id="box2" style="background:deepskyblue;"></div>
+<div id="box3" style="background:greenyellow;"></div>
+<button id="button" onclick="startChange()">시작</button>
+<script>
+    let temp = false // 버튼 toggle 변수
+    let loopStart = null; // 버튼 함수에 사용할 toggle변수
+
+    let startChange = () => {
+        let box1 = document.getElementById('box1')
+        let box2 = document.getElementById('box2')
+        let box3 = document.getElementById('box3')
+        let toggleButton = document.getElementById('button');
+        temp = !temp;
+        if (temp) { // 시작 버튼을 클릭했을경우 실행
+            toggleButton.innerHTML = `멈춤`;
+            loopStart = setInterval(() => {
+                let colorTemp = box1.getAttribute('style'); // 색 저장 변수
+                box1.setAttribute('style', box2.getAttribute('style'));
+                box2.setAttribute('style', box3.getAttribute('style'));
+                box3.setAttribute('style', colorTemp);
+            }, 250) // 주기 설정 1000 = 1초, 기본값 0.25초 설정
+        } else { // 멈춤 버튼을 클릭했을 경우 실행
+            toggleButton.innerHTML = `시작`
+            clearInterval(loopStart);
+        }
+    }
+</script>
+</body>
+</html>
