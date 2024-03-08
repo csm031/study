@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2차원 배열 실습2</title>
+    <style>
+        #textArea{
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 2rem;
+
+        }
+        .none{
+            display: none;
+        }
+        td{
+            border: 1px solid black;
+            width: 15px;
+            height: 15px;
+        }
+        .pink{
+            background-color: hotpink;
+        }
+        .red {
+            background-color: red;
+        }
+        button{
+            width: 8rem;
+            height: 2rem;
+            border-radius: 40px;
+            color: white;
+            background-color: deepskyblue;
+            font-weight: bold;
+            margin-left: 0.2rem;
+            margin-top: 0.5rem;
+            transition: 0.3s;
+        }
+        button:hover{
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    </style>
+    <!-- 50, 11-->
+    <script src="2차원배열실습.js"></script>
+</head>
+<body>
+<div id = tableArea></div>
+<button onclick="styleInsertPink()" id="pinkButton">분홍색 채우기</button>
+<button onclick="styleInsertRed()" id="redButton">빨간색 채우기</button>
+<div id="textArea"></div><br>
+<button onclick="start()">시작</button>
+
+</body>
+</html>
