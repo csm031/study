@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addEventListener 사용한 이벤트 처리</title>
+</head>
+<body>
+<!--버튼지정-->
+<button id = 'clickButton'>저를 클릭해보세요!</button>
+<button id = 'myButton'>이벤트 적용 버튼</button>
+<button id = 'removeButton'>이벤트 제거 버튼</button>
+<script>
+    // 버튼 이름 지정
+    const clickButton = document.getElementById('clickButton');
+    const button = document.getElementById('myButton');
+    const removeButton = document.getElementById('removeButton');
+
+    // 버튼에 클릭 이벤트 핸들러 추가
+    const clickEvent = () => alert('버튼을 클릭하셨습니다.');
+    button.addEventListener("click", () =>{
+        clickButton.addEventListener("click", clickEvent)
+    });
+
+    // 버튼에 적용되있는 클릭 이벤트 핸들러 삭제
+    removeButton.addEventListener("click", () => clickButton.removeEventListener("click", clickEvent));
+
+</script>
+</body>
+</html>
