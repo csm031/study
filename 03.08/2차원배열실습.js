@@ -1,4 +1,22 @@
 let temp = true;
+let speed = 200;
+let intervalId=null;
+let speedUp=()=>{
+    speed-=20;
+    if (speed<=10) {
+        speed=10;
+        alert(`최고 속도입니다.`);
+    }
+    start();
+}
+let speedDown=()=>{
+    speed+=20;
+    if (speed>=1000) {
+        speed=0;
+        alert(`최저 속도입니다.`);
+    }
+    start();
+}
 window.onload = function () {
     let tableFormat = `<table>`;
     for (let i = 0; i < 11; i++) {
@@ -53,7 +71,7 @@ let redEventStyle = () => {
         for (let i = 0; i < 11; i++) {
             for (let j = 0; j < 50; j++) {
                 document.getElementById(`td${i}_${j}`).removeEventListener('click', redHandle);
-                ;
+
             }
         }
     }
@@ -70,7 +88,7 @@ let pinkEventStyle = () => {
         for (let i = 0; i < 11; i++) {
             for (let j = 0; j < 50; j++) {
                 document.getElementById(`td${i}_${j}`).removeEventListener('click', pinkHandle);
-                ;
+
             }
         }
     }
@@ -86,14 +104,25 @@ let styleInsertPink = () => {
 }
 
 let start = () => {
-    setInterval(() => {
+    if (intervalId !== null) {
+        clearInterval(intervalId);
+    }
+    intervalId = setInterval(() => {
         for (let i = 0; i < 11; i++) {
             for (let j = 0; j < 49; j++) {
                 if (document.getElementById(`td${i}_${j + 1}`).getAttribute('class') === 'red' || document.getElementById(`td${i}_${j + 1}`).getAttribute('class') === 'pink') {
                     document.getElementById(`td${i}_${j}`).setAttribute('class', document.getElementById(`td${i}_${j + 1}`).getAttribute('class'));
-                    document.getElementById(`td${i}_${j + 1}`).setAttribute('class',"");
+                    document.getElementById(`td${i}_${j + 1}`).setAttribute('class', "");
+                }
+                if (document.getElementById(`td${i}_49`)) {
+                    document.getElementById(`td${i}_49`).setAttribute('class', document.getElementById(`td${i}_0`).getAttribute('class'));
+                    setTimeout(() => document.getElementById(`td${i}_0`).setAttribute('class', ""), speed);
                 }
             }
         }
-    }, 200)
+    }, speed)
 }
+let stop= () =>{
+    clearInterval(intervalId);
+}
+
