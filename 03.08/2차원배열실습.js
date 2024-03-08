@@ -125,4 +125,3 @@ let start = () => {
 let stop= () =>{
     clearInterval(intervalId);
 }
-
