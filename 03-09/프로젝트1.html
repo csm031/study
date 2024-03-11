@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디 패스워드 제출</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#my_form").submit(function (e) {
+                let inputName = $("#name").val();
+                let inputPassword = $("#password").val();
+                if (inputName === "" && inputPassword === "") {
+                    alert(`아이디와 비밀번호를 입력하세요.`)
+                    e.preventDefault();
+                } else if (inputName === "" && inputPassword !== "") {
+                    alert(`아이디를 입력하세요.`)
+                    e.preventDefault();
+                } else if (inputPassword === "" && inputName !== "") {
+                    alert(`비밀번호를 입력하세요.`)
+                    e.preventDefault();
+                } else {
+                    alert(`이름은 : ${inputName}이고 비밀번호는 : ${inputPassword} 입니다.`);
+                }
+            })
+        })
+    </script>
+    <style>
+        label{
+            display: inline-block;
+            width: 2rem;
+            margin-right: 5px;
+        }
+        input[type="submit"] {
+            margin-top: 15px;
+            background: #666;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+<form id="my_form">
+    <label for="name">id: </label><input type="text" id="name"><br>
+    <label for="password">pw: </label><input type="password" id="password"><br>
+    <input type="submit">
+</form>
+</body>
+</html>
