@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>버튼 누르면 div 토글</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+// 버튼 클릭 이벤트 처리
+      $("#toggleButton").click(function(){
+// ID가 "myDiv"인 div 요소의 가시성을 토글합니다.
+        $("#myDiv").toggle();
+      });
+    });
+  </script>
+  <style>
+    /* div의 초기 상태는 숨겨진 상태입니다. */
+    #myDiv {
+      display: none;
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+<body>
+<button id="toggleButton">토글</button>
+<div id="myDiv">이 div는 토글됩니다.</div>
+</body>
+</html>
