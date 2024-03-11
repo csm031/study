@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>여러 객체의 속성 변경 예제</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>여러 객체의 속성 변경 예제</h1>
+<img class="image" src="image1.jpg" alt="이미지 1">
+<img class="image" src="image2.jpg" alt="이미지 2">
+<img class="image" src="image3.jpg" alt="이미지 3">
+<button id="changeAttributes">속성 변경</button>
+<script>
+    $(document).ready(function() {
+// 속성 변경
+        $("#changeAttributes").click(function() {
+// class가 "image"인 모든 이미지 요소의 src와 alt 속성 변경
+            $(".image").attr({
+                "src": "newimage.jpg",
+                "alt": "새 이미지"
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
