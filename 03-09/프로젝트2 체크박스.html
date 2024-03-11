@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>체크박스</title>
+    <style>
+        * {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#allSelect").change(function (e) {
+                if (this.checked) {
+                    $("#check_item").children("input").prop("checked", true);
+                } else {
+                    $("#check_item").children("input").prop("checked", false);
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+<form>
+    <label for="allSelect">ALL</label><input type="checkbox" id="allSelect">
+    <div id="check_item">
+        <label for="aBox">A</label><input type="checkbox" id="aBox">
+        <label for="bBox">B</label><input type="checkbox" id="bBox">
+        <label for="cBox">C</label><input type="checkbox" id="cBox">
+    </div>
+</form>
+</body>
+</html>
