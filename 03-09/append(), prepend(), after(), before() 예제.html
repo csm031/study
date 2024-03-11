@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>append(), prepend(), after(), before() 예제</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+<h1>append(), prepend(), after(), before() 예제</h1>
+<div id="container">
+    <p>This is a paragraph.</p>
+</div>
+<button id="appendButton">append()</button>
+<button id="prependButton">prepend()</button>
+<button id="afterButton">after()</button>
+<button id="beforeButton">before()</button>
+<script>
+    $(document).ready(function () {
+// append() 메서드 사용
+        $("#appendButton").click(function () {
+            let newElement = "<p>append 메서드 사용</p>";
+            $("#container").append(newElement);
+        });
+// prepend() 메서드 사용
+        $("#prependButton").click(function () {
+            let newElement = "<p>prepend 메서드 사용</p>";
+            $("#container").prepend(newElement);
+        });
+// after() 메서드 사용
+        $("#afterButton").click(function () {
+            let newElement = "<p>after 메서드 사용</p>";
+            $("#container p").after(newElement);
+        });
+// before() 메서드 사용
+        $("#beforeButton").click(function () {
+            let newElement = "<p>before 메서드 사용.</p>";
+            $("#container p").before(newElement);
+        });
+    });
+</script>
+</body>
+</html>
