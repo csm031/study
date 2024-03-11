@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>children() vs. find()</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+<h1>children() vs. find() 메서드 예제</h1>
+<div id="parent">
+    <p>직계 자식 1</p>
+    <p>직계 자식 2</p>
+    <div>
+        <p>자식의 자식 1</p>
+        <p>자식의 자식 2</p>
+    </div>
+</div>
+<button id="childrenButton">children()</button>
+<button id="findButton">find()</button>
+<div id="result"></div>
+<script>
+    $(document).ready(function () {
+// children() 메서드 사용
+        $("#childrenButton").click(function () {
+            let directChildren = $("#parent").children("p");
+            let result = "children() 메서드 결과: " +
+                directChildren.length + "개의 직계 자식 <p> 요소";
+            $("#result").text(result);
+        });
+// find() 메서드 사용
+        $("#findButton").click(function () {
+            let descendants = $("#parent").find("p");
+            let result = "find() 메서드 결과: " + descendants.length +
+                "개의 모든 자손 <p> 요소";
+            $("#result").text(result);
+        });
+        // children() 메서드는 선택한 요소의 직계 자식 요소를 선택합니다.
+        // 이것은 요소의 바로 아래 단계의 자식들만 선택합니다.
+        // find() 메서드는 선택한 요소 내의 모든 하위 요소를 선택합니다.
+        // 이것은 직계 자식 뿐만 아니라 모든 자손 요소를 선택합니다.
+    });
+</script>
+</body>
+</html>
