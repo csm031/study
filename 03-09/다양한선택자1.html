@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>다양한선택자1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("*").css("border", "2px solid red");
+
+            $("button").click(function () {
+                $(this).text("클릭됨");
+            });
+
+            $("p.intro").css("background-color", "yellow");
+
+            $("p:first").css("font-weight", "bold");
+        });
+    </script>
+    <style>
+        p {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>제목</h1>
+<p>내용</p>
+<a href="#">링크</a>
+<button>클릭</button>
+<button>클릭</button>
+<p class="intro">첫 번째 "intro" 클래스를 가진 단락</p>
+<p class="intro">두 번째 "intro" 클래스를 가진 단락</p>
+<p>다른 단락</p>
+</body>
+</html>

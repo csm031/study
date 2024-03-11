@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attr()메서드</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>attr() 메서드 예제</h1>
+<img id="myImage" src="기존이미지.jpg" alt="기존 이미지">
+<button id="changeImage">이미지 변경</button>
+<script>
+    $(document).ready(function() {
+// 이미지 변경
+        $("#changeImage").click(function() {
+            $("#myImage").attr("src", "새로운이미지.jpg");
+            $("#myImage").attr("alt", "새로운 이미지 설명");
+        });
+    });
+</script>
+</body>
+</html>
