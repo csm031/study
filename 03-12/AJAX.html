@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#ajaxButton_Json").on("click",function () {
+                $.ajax({
+                    url: "ajax/ajaxTest01.json",
+                    type: "get",
+                    dataType: "json",
+                    timeout: 5000,
+                    success: (data) => {
+                        let first = data['서론'];
+                        let second = data['본론'];
+                        $("div").html(`${first}<br>${second}`)
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        $("div").html("<div>" + textStatus + " (HTTP-" + xhr.status + " / " + errorThrown + ")</div>");
+                    },
+                })
+            })
+            $("#ajaxButton_Xml").on("click",function () {
+                $.ajax({
+                    url:"ajax/ajaxTest02.xml",
+                    type:"get",
+                    dataType:"xml",
+                    success: function (data) {
+                        let first = $(data).find('첫번째').text()
+                        let second = $(data).find('두번째').text()
+                        $("div").html(`${first}<br>${second}`);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        $("div").html("<div>" + textStatus + " (HTTP-" + xhr.status + " / " + errorThrown + ")</div>");
+                    }
+                })
+            })
+            $("#ajaxButton_request").on("click",function () {
+                $.ajax({
+                    url:"ajax/ajaxTest03.jsp",
+                    type:"get",
+                    data:"name="+$("#inputJsp").val(),
+                    dataType:"html",
+                    success: function (result) {
+                        $("div").html(result);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        $("div").html("<div>" + textStatus + " (HTTP-" + xhr.status + " / " + errorThrown + ")</div>");
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<button id="ajaxButton_Json">AJAX 사용(json)</button>
+<button id="ajaxButton_Xml">AJAX 사용(xml)</button>
+<button id="ajaxButton_request">AJAX 사용(request)</button>
+<input id="inputJsp" type="text" placeholder="최승문을 입력하세요.">
+<div></div>
+</body>
+</html>
