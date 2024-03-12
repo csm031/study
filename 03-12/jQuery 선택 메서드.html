@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 선택 메서드</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+    </script>
+</head>
+<body>
+<ul>
+    <li>항목 1</li><li>항목 2</li>
+    <li>항목 3</li><li>항목 4</li><li>항목 5</li>
+</ul>
+<script>
+    $(document).ready(function() {
+// first() 메서드: 첫 번째 요소 선택
+        let firstItem = $("li").first().text();
+        console.log("first(): " + firstItem);
+// last() 메서드: 마지막 요소 선택
+        let lastItem = $("li").last().text();
+        console.log("last(): " + lastItem);
+// eq() 메서드: 특정 인덱스의 요소 선택 (0부터 시작)
+        let thirdItem = $("li").eq(2).text();
+        console.log("eq(): " + thirdItem);
+// filter() 메서드: 특정 조건에 맞는 요소 선택
+        let filteredItems = $("li").filter(function() {
+            return $(this).text().includes("2");
+        }).text();
+        console.log("filter(): " + filteredItems);
+// not() 메서드: 특정 조건에 맞지 않는 요소 선택
+        let notItems = $("li").not(":contains('2')").text();
+        console.log("not(): " + notItems);
+    });
+</script>
+</body>
+</html>
