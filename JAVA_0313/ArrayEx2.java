@@ -1,5 +1,4 @@
 package JAVA_0313;
-import java.sql.Array;
 import java.util.Scanner;
 public class ArrayEx2 {
     public static void main(String[] args) {
