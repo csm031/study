@@ -1,5 +1,7 @@
 package JAVA_0314;
-
+//문제 - 입출금 리펙토링
+//다음은 입금, 출금을 나타내는 코드이다.
+//입금(deposit)과, 출금(withdraw)을 메서드로 만들어서 리펙토링 해보자.
 public class MethodEx3 {
     static int balance = 10000;
 
