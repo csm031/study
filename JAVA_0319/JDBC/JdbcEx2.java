@@ -1,12 +1,12 @@
 package JAVA_0319.JDBC;
+//count 및 별칭을 사용한 쿼리문으로 바꿔서 출력
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import java.sql.Connection; // DB연결
-import java.sql.DriverManager; // DB 드라이버 찾을때 사용
-import java.sql.ResultSet; // sql문 결과 출력
-import java.sql.SQLException; // 오류 감지
-import java.sql.Statement; // sql쿼리 저장
-
-public class jdbcEx1 {
+public class JdbcEx2 {
     public static void main(String[] args) throws SQLException {
         Connection con = null;
         Statement stmt = null;
@@ -20,15 +20,11 @@ public class jdbcEx1 {
             con = DriverManager.getConnection(url, id, pass);
             System.out.println("데이터베이스 접속 성공");
             StringBuffer sql = new StringBuffer();
-            sql.append("select * from \"INFO\"");
+            sql.append("select count(*) as \"cnt\" from \"INFO\""); // count에 별칭으로 cnt라고 지어줌
             stmt = con.createStatement();
             rs = stmt.executeQuery(sql.toString());
-            while (rs.next()) {       // 자료형을 잘 선언하고 숫자말고 컬럼명으로 선언도 가능하다
-                System.out.println(rs.getInt(1)); // 1번말고 "NUM"
-                System.out.println(rs.getString(2)); // 2번 말고 "NAME"
-                System.out.println(rs.getDate(3));
-                System.out.println(rs.getString(4));
-                System.out.println();
+            while (rs.next()) {   // 자료형을 잘 선언하고 숫자말고 컬럼명으로 선언도 가능하다
+                System.out.println("레코드수 : " + rs.getInt("cnt")); // cnt말고 "1"도 가능
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

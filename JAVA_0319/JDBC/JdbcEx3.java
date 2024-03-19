@@ -1,12 +1,13 @@
 package JAVA_0319.JDBC;
-//count 및 별칭을 사용한 쿼리문으로 바꿔서 출력
+//where 및 특정 컬럼만 출력
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class jdbcEx2 {
+public class JdbcEx3 {
     public static void main(String[] args) throws SQLException {
         Connection con = null;
         Statement stmt = null;
@@ -20,11 +21,13 @@ public class jdbcEx2 {
             con = DriverManager.getConnection(url, id, pass);
             System.out.println("데이터베이스 접속 성공");
             StringBuffer sql = new StringBuffer();
-            sql.append("select count(*) as \"cnt\" from \"INFO\""); // count에 별칭으로 cnt라고 지어줌
+            sql.append("select \"NAME\", \"NUM\", \"BIRTH\" from \"INFO\" WHERE \"NUM\" =2");
             stmt = con.createStatement();
             rs = stmt.executeQuery(sql.toString());
             while (rs.next()) {   // 자료형을 잘 선언하고 숫자말고 컬럼명으로 선언도 가능하다
-                System.out.println("레코드수 : " + rs.getInt("cnt")); // cnt말고 "1"도 가능
+                System.out.println("이름 : " + rs.getString("name"));
+                System.out.println("번호 : " + rs.getInt("num"));
+                System.out.println("생일 : " + rs.getDate("BIRTH"));
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
