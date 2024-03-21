@@ -1,6 +1,5 @@
 package Inflearn.JAVA_0321;
 
-import Inflearn.JAVA_0320.Student;
 // 리팩토링
 public class ClassStart5 {
     public static void main(String[] args) {
