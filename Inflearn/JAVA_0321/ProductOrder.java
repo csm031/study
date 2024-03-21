@@ -10,4 +10,8 @@ public class ProductOrder {
         this.price = price;
         this.quantity = quantity;
     }
+
+    ProductOrder(){
+
+    }
 }
