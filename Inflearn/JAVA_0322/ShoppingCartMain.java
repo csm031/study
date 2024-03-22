@@ -12,4 +12,3 @@ public class ShoppingCartMain {
         cart.displayItems();
     }
 }
-}
