@@ -1,21 +1,21 @@
-package Inflearn.java0323;
-
-public class JavaMemoryMain2 {
+package Inflearn.java_0323;
+// 스택 구조
+public class JavaMemoryMain1 {
     public static void main(String[] args) {
         System.out.println("main start");
-        method1();
+        method1(10);
         System.out.println("main end");
     }
 
-    private static void method1() {
+    static void method1(int m1) {
         System.out.println("method1 start");
-        Data data = new Data(10);
-        method2(data);
+        int cal = m1 * 2;
+        method2(cal);
         System.out.println("method1 end");
     }
-    static void method2(Data data) {
+
+    static void method2(int m2) {
         System.out.println("method2 start");
-        System.out.println("data.value= " + data.getValue());
         System.out.println("method2 end");
     }
 }

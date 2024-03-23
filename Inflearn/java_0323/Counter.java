@@ -1,4 +1,4 @@
-package Inflearn.java0323;
+package Inflearn.java_0323;
 
 public class Counter {
     public int count;
