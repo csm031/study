@@ -1,0 +1,11 @@
+package Inflearn.java_0325.overriding;
+
+public class CarMain {
+    public static void main(String[] args) {
+        ElectricCar electricCar = new ElectricCar();
+        electricCar.move();
+
+        HydrogenCar hydrogenCar = new HydrogenCar();
+        hydrogenCar.move();
+    }
+}
