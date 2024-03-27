@@ -21,7 +21,6 @@ public class HumanView {
 		String strMainMenu = "~ Customer Service 프로그램 ~";
 		strMainMenu += "| 1.Select | 2.Insert | 3.Update | 4.Delete | 5.Exit |";
 		model.setAttribute("input", UserInput.inputInt(strMainMenu));
-
 	}
 
 	public void deleteInputView(Model model) {
