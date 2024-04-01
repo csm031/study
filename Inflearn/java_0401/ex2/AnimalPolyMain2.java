@@ -2,11 +2,8 @@ package Inflearn.java_0401.ex2;
 
 public class AnimalPolyMain2 {
     public static void main(String[] args) {
-        Dog dog = new Dog();
-        Cat cat = new Cat();
-        Caw caw = new Caw();
-        Animal duck = new Duck();
-        Animal[] animalArr = {dog, cat, caw, duck};
+
+        Animal[] animalArr = {new Dog(), new Cat(), new Caw(), new Duck()};
 
         for (Animal animal : animalArr) {
             System.out.println("동물소리 테스트 시작");
