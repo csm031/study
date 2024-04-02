@@ -6,10 +6,15 @@ public class AnimalPolyMain2 {
         Animal[] animalArr = {new Dog(), new Cat(), new Caw(), new Duck()};
 
         for (Animal animal : animalArr) {
-            System.out.println("동물소리 테스트 시작");
-            animal.sound();
-            System.out.println("동물소리 테스트 종료");
+            soundAnimal(animal);
         }
 
+    }
+
+    // 변하지 않는 부분
+    private static void soundAnimal(Animal animal) {
+        System.out.println("동물소리 테스트 시작");
+        animal.sound();
+        System.out.println("동물소리 테스트 종료");
     }
 }
